@@ -32,8 +32,8 @@ if len(matches) > MIN_MATCHES:
     capt = cv2.drawMatches(model, kp_model, img, kp_frame,
                       matches[:MIN_MATCHES], 0, flags=2)
     # show result
-    cv2.imshow('frame', cv2.resize(capt, (800, 600)))
-    cv2.waitKey(0)
+    #cv2.imshow('frame', cv2.resize(capt, (800, 600)))
+    #cv2.waitKey(0)
 else:
     print ("Not enough matches have been found - %d/%d" % (len(matches),
                                                           MIN_MATCHES))
