@@ -1,0 +1,10 @@
+one.py = projects photo
+
+test_obj.py = detects objects
+
+frame in line 64 is detecting the object in frame!
+
+points in github repo of owner in line 112 is for the image to be displaced i.e, toc.jpeg
+
+The wierd patterns are made in frames because algorithm is finding more patterns in the frame even in that frame in which frame is not present.
+in two.py

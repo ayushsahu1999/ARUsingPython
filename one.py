@@ -20,6 +20,7 @@ replaceImg = cv2.imread('toc.jpg', 0)
 rows, cols = replaceImg.shape
 img2 = []
 
+# Anti-clock wise
 pts1 = np.float32([[0, 0], [cols, 0], [cols, rows], [0, rows]])
 processing = True
 maskThreshold = 10
