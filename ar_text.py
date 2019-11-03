@@ -1,7 +1,6 @@
 import cv2
 import numpy as np
-from ffpyplayer.player import MediaPlayer
-
+import pytesseract
 
 # Minimum number of matches that have to be found
 # to consider the recognition valid
@@ -33,8 +32,7 @@ kp_model, des_model = orb.detectAndCompute(model, None)
 # init video capture
 cap = cv2.VideoCapture(0)
 vid = cv2.VideoCapture('smffh.mp4')
-video_path = "smffh.mp4"
-player = MediaPlayer(video_path)
+s = ''
 
 
 i = 0
@@ -69,11 +67,9 @@ while True:
 
         ret, replaceImg = vid.read()
 
-
         if not ret:
             print ('Unable to play Video')
             break
-
 
         replaceImg = cv2.resize(replaceImg, (640, 480))
         rows, cols = 480, 640
@@ -93,13 +89,6 @@ while True:
         dst = cv2.perspectiveTransform(pts, homography)
         # connect them with lines
         frame = cv2.polylines(frame, [np.int32(dst)], True, 255, 3, cv2.LINE_AA)
-
-        audio_frame, val = player.get_frame()
-
-        if val != 'eof' and audio_frame is not None:
-            #audio
-            img, t = audio_frame
-
 
     if (homography is not None):
         # compute the transform matrix
@@ -122,8 +111,6 @@ while True:
         # the two images are added using the mask
         for c in range(0, 3):
             frame[:, :, c] = dst1[:, :, c]*(1 - mask[:, :, c]) + frame[:, :, c]*mask[:, :, c]
-
-
 
 
         # try:

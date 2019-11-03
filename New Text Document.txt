@@ -12,3 +12,7 @@ in two.py
 Updated MIN_MATCHES to 150
 
 After successfully played video, in test_ar.py I added 2 videos with mask and I added a dimension in mask and it worked!
+
+To download youtube video E:/move/scraped videos yt-dl.py
+
+New File added: ar_text.py
